@@ -51,8 +51,6 @@ public class LoadTestDataAnalysis {
 
 			System.out.println("##### Sheet Row Count => " + ReadData.getRowCount(SheetName));
 
-			if (SheetName.equals("RY")) {
-
 				// Load all the brands pages then Load all the load test results (Read from
 				// excel sheet and insert to db)
 				for (int i = 3; i <= ReadData.getRowCount(SheetName); i++) {
@@ -62,8 +60,6 @@ public class LoadTestDataAnalysis {
 					SqLiteUtils.insertCBIBrandsPages(details, CBIBrandsPagesTable, DatabaseName);
 					SqLiteUtils.insertLoadTestResult(details, SheetName + BrandsLoadTestTable, DatabaseName);
 				}
-
-			}
 		}
 
 	}// loadResultsToTables
@@ -85,8 +81,6 @@ public class LoadTestDataAnalysis {
 			SheetName = sheet.getSheetName();
 
 			System.out.println("##### Sheet Row Count  => " + WriteData.getRowCount(SheetName));
-
-			if (SheetName.toUpperCase().equals("RY")) {
 
 				SheetColNum = WriteData.getColumnCount(SheetName);
 
@@ -113,7 +107,7 @@ public class LoadTestDataAnalysis {
 
 				WriteData.writeExcelFile();
 
-			}
+			
 		}
 
 	}// writeReleaseResultToExcel
